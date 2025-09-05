@@ -1,0 +1,44 @@
+pipeline:
+  name: frontend
+  identifier: frontend
+  projectIdentifier: BMW
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: MyGitHub
+        repoName: frontend
+        build: <+input>
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: GitClone
+                  name: Git Clone
+                  identifier: Git_Clone
+                  spec:
+                    connectorRef: MyGitHub
+                    repoName: frontend
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
