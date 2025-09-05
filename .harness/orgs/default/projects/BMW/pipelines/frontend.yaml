@@ -42,3 +42,18 @@ pipeline:
                       type: branch
                       spec:
                         branch: main
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - Unknown
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 1
+                            onRetryFailure:
+                              action:
+                                type: MarkAsFailure
+                            retryIntervals:
+                              - 1m
+                  when:
+                    stageStatus: Success
