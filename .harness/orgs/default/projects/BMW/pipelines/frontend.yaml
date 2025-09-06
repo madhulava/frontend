@@ -1,5 +1,5 @@
 pipeline:
-  name: frontend
+  name: frontend_1
   identifier: frontend
   projectIdentifier: BMW
   orgIdentifier: default
