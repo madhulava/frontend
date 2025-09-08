@@ -1,4 +1,4 @@
-#Test Webhook - Automated
+#Test Webhook - Automate
 ## Available Scripts
 
 In the project directory, you can run:
